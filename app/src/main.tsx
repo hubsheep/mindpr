@@ -1,11 +1,12 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router";
+import { HashRouter } from "react-router";
 import "./index.css";
 import App from "./App.tsx";
 
-// 不使用 StrictMode（避免副作用双跑，react-dev.md）
+// 使用 HashRouter：GitHub Pages 等静态托管无需服务端路由配置
+// PWA 添加到主屏幕后仍从 start_url 正常启动
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename={import.meta.env.BASE_URL}>
+  <HashRouter>
     <App />
-  </BrowserRouter>,
+  </HashRouter>,
 );
