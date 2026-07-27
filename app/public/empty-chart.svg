@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" width="320" height="160" fill="none" stroke="#A79E90" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 虚线坐标轴：尚未长成的曲线 -->
+  <path d="M36 24 V128 H292" stroke-dasharray="6 8"/>
+  <path d="M52 112 C96 104 140 96 190 84" stroke-dasharray="4 10" stroke-opacity="0.35"/>
+  <!-- 小花盆 -->
+  <path d="M228 96 h44 l-6 32 h-32 z"/>
+  <path d="M224 92 h52"/>
+  <!-- 刚发芽的小苗 -->
+  <path d="M250 92 V66"/>
+  <path d="M250 74 C242 72 238 66 238 60 C246 60 250 66 250 74 Z"/>
+  <path d="M250 68 C258 66 262 60 262 54 C254 54 250 60 250 68 Z"/>
+  <!-- 一点晨光 -->
+  <circle cx="96" cy="44" r="10" stroke-opacity="0.35"/>
+  <path d="M96 26 v-6 M96 68 v-6 M78 44 h-6 M120 44 h-6" stroke-opacity="0.35"/>
+</svg>

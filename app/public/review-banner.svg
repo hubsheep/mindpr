@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" fill="none" stroke-linecap="round">
+  <!-- 宽幅莫兰迪抽象：日落田野 -->
+  <rect width="640" height="200" fill="#F6F2EC"/>
+  <!-- 远处圆弧山丘 -->
+  <path d="M0 150 Q160 92 320 138 T640 128" stroke="#E3CBB8" stroke-width="2.5" fill="none"/>
+  <path d="M0 168 Q200 120 400 156 T640 150" stroke="#8FA08A" stroke-opacity="0.55" stroke-width="2.5" fill="none"/>
+  <path d="M0 184 Q240 150 480 176 T640 172" stroke="#C9A876" stroke-opacity="0.5" stroke-width="2.5" fill="none"/>
+  <!-- 落日：陶土呼吸圆被弧线环抱 -->
+  <circle cx="478" cy="86" r="30" fill="#AE7E5E" fill-opacity="0.85"/>
+  <circle cx="478" cy="86" r="10" fill="#F6F2EC"/>
+  <path d="M430 66 A52 52 0 0 1 526 66" stroke="#AE7E5E" stroke-width="6" fill="none" stroke-opacity="0.8"/>
+  <!-- 一星一叶，极简点缀 -->
+  <circle cx="150" cy="52" r="3" fill="#C9A876"/>
+  <path d="M540 40 c8 -2 14 2 16 10 c-8 2 -14 -2 -16 -10 z" fill="#8FA08A" fill-opacity="0.6"/>
+  <!-- 地平线段 -->
+  <path d="M56 190 H584" stroke="#E3DCD0" stroke-width="2"/>
+</svg>

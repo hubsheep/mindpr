@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none" stroke="#7A6A58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 新月 -->
+  <path d="M56 22 A26 26 0 1 0 56 66 A20 20 0 1 1 56 22 Z"/>
+  <!-- 两颗小星 -->
+  <path d="M70 30 l1.8 4 4 1.8 -4 1.8 -1.8 4 -1.8 -4 -4 -1.8 4 -1.8 z"/>
+  <circle cx="26" cy="26" r="2.4"/>
+  <!-- 安静的水平线 -->
+  <path d="M20 78 H76"/>
+</svg>

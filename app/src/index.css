@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* —— 心智日课设计系统色彩 token（莫兰迪暖色系，design.md §2）—— */
+    --paper: #F6F2EC;
+    --paper-deep: #EFE8DD;
+    --card-warm: #FCFAF5;
+    --line: #E3DCD0;
+    --ink: #3B362F;
+    --ink-2: #6E675C;
+    --ink-3: #A79E90;
+    --clay-600: #96684C;
+    --clay-500: #AE7E5E;
+    --clay-200: #E3CBB8;
+    --clay-100: #F1E5D8;
+    --sage-600: #75876F;
+    --sage-500: #8FA08A;
+    --sage-100: #E6EADE;
+    --apricot-500: #C9A876;
+    --apricot-100: #F4E9D6;
+    --dusk-500: #7A6A58;
+    --dusk-100: #EAE1D5;
+    --rust-500: #C07A5A;
+
+    /* 字体栈（design.md §3） */
+    --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --font-serif: "Songti SC", "STSong", "Noto Serif SC", serif;
+
+    /* shadcn 变量映射到暖色系（供 ui/ 基础组件使用） */
+    --background: 40 33% 95%;
+    --foreground: 36 11% 21%;
+    --card: 43 54% 97%;
+    --card-foreground: 36 11% 21%;
+    --popover: 43 54% 97%;
+    --popover-foreground: 36 11% 21%;
+    --primary: 24 30% 53%;
+    --primary-foreground: 43 54% 97%;
+    --secondary: 90 16% 90%;
+    --secondary-foreground: 96 11% 47%;
+    --muted: 36 25% 90%;
+    --muted-foreground: 34 9% 40%;
+    --accent: 28 42% 90%;
+    --accent-foreground: 24 33% 46%;
+    --destructive: 17 45% 55%;
+    --destructive-foreground: 43 54% 97%;
+    --border: 36 21% 85%;
+    --input: 36 21% 85%;
+    --ring: 24 30% 53%;
+    --radius: 0.875rem;
+    --sidebar-background: 40 33% 95%;
+    --sidebar-foreground: 36 11% 21%;
+    --sidebar-primary: 24 30% 53%;
+    --sidebar-primary-foreground: 43 54% 97%;
+    --sidebar-accent: 28 42% 90%;
+    --sidebar-accent-foreground: 24 33% 46%;
+    --sidebar-border: 36 21% 85%;
+    --sidebar-ring: 24 30% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    /* 页面级禁用横向滚动（design.md §6） */
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper text-ink;
+    font-family: var(--font-sans);
+    /* PWA：消灭双击缩放延迟与点按高亮（design.md §6） */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+  /* 数字统一等宽（计时器、图表、streak 数） */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  /* serif 引文字体 */
+  .font-quote {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  /* iOS 安全区 */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* 为 TabBar 预留的底部滚动余量：84px + 安全区（design.md §4） */
+  .pb-tabbar {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+  /* 顶栏下方 20px 渐隐遮罩（design.md §6） */
+  .fade-mask-top {
+    mask-image: linear-gradient(to bottom, transparent 0, black 20px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 20px);
+  }
+  /* 全局纸张纹理叠加（3% 透明度） */
+  .grain-overlay {
+    background-image: url('/texture-grain.png');
+    background-size: 256px 256px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* 动效护栏：位移动画退化为纯淡入（design.md §5） */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
