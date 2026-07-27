@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
   db,
@@ -14,7 +15,12 @@ import {
   type Valence,
   type Arousal,
 } from "./schema";
-import { syncStreak, type SyncResult } from "./streak";
+import {
+  syncStreak,
+  defaultStreakState,
+  WEEKLY_FREEZES,
+  type SyncResult,
+} from "./streak";
 
 /**
  * React hooks 与写入函数 —— 页面代理直接调用本模块，不要直接操作 db 表。
@@ -87,22 +93,36 @@ export function useStreak(date: string = getTrainingDate()): SyncResult & {
   /** 剩余可用 freeze 数（0–2） */
   freezesLeft: number;
 } {
-  const result = useLiveQuery(() => syncStreak(date), [date]);
-  const fallback: SyncResult = {
-    state: {
-      current: 0,
-      totalDays: 0,
-      lastLitDate: null,
-      freezesUsedThisWeek: 0,
-      freezeWeekId: null,
-      pendingRecovery: false,
-      pendingFreezeToast: 0,
-      hasAnyRecord: false,
-    },
+  const [result, setResult] = useState<SyncResult>({
+    state: defaultStreakState(),
     justLitToday: false,
+  });
+
+  // 只读订阅 daily_entries 的最新更新时间，变化时重新结算
+  const lastUpdate =
+    useLiveQuery(
+      async () =>
+        (await db.daily_entries.toArray()).reduce(
+          (max, e) => Math.max(max, e.updatedAt),
+          0,
+        ),
+      [],
+    ) ?? 0;
+
+  useEffect(() => {
+    let mounted = true;
+    syncStreak(date).then((next) => {
+      if (mounted) setResult(next);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [date, lastUpdate]);
+
+  return {
+    ...result,
+    freezesLeft: WEEKLY_FREEZES - result.state.freezesUsedThisWeek,
   };
-  const r = result ?? fallback;
-  return { ...r, freezesLeft: 2 - r.state.freezesUsedThisWeek };
 }
 
 /** 全部 WHO-5 记录（按时间升序，画折线用） */
