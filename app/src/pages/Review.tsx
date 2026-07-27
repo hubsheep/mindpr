@@ -126,7 +126,7 @@ function WinCheck({ delay }: { delay: number }) {
 function Banner() {
   return (
     <motion.img
-      src="/review-banner.svg"
+      src={`${import.meta.env.BASE_URL}review-banner.svg`}
       alt=""
       className="mt-4 aspect-[16/5] w-full rounded-[20px] object-cover"
       initial={{ opacity: 0, scale: 1.04 }}
@@ -237,7 +237,7 @@ function MoodMiniChart({
   if (checkins.length === 0) {
     return (
       <div className="mt-4 flex flex-col items-center py-2">
-        <img src="/empty-chart.svg" alt="" className="w-full max-w-[280px]" />
+        <img src={`${import.meta.env.BASE_URL}empty-chart.svg`} alt="" className="w-full max-w-[280px]" />
         <p className="mt-2 text-[13px] leading-[18px] tracking-[0.02em] text-ink-3">
           完成几天练习后，这里会长出曲线
         </p>
@@ -649,7 +649,7 @@ export default function Review() {
             transition: { delay: 0.2, duration: 0.4, ease: SOFT_OUT },
           }}
         >
-          <img src="/seg-evening.svg" alt="" width={40} height={40} className="mx-auto" />
+          <img src={`${import.meta.env.BASE_URL}seg-evening.svg`} alt="" width={40} height={40} className="mx-auto" />
           <h2 className="mt-3 text-[17px] font-semibold leading-[24px] tracking-[0.01em] text-ink">
             周日见
           </h2>
@@ -799,7 +799,7 @@ export default function Review() {
           >
             <div className="w-full max-w-[320px] text-center">
               <motion.img
-                src="/review-banner.svg"
+                src={`${import.meta.env.BASE_URL}review-banner.svg`}
                 alt=""
                 className="aspect-[16/5] w-full rounded-[20px] object-cover"
                 initial={{ opacity: 0, y: 12 }}

@@ -375,7 +375,7 @@ export default function Settings() {
             {/* 产品卡（§6.1） */}
             <div className="mt-4 flex flex-col items-center rounded-[20px] bg-clay-100 p-6">
               <motion.img
-                src="/app-icon.png"
+                src={`${import.meta.env.BASE_URL}app-icon.png`}
                 alt="心智日课图标"
                 className="h-[72px] w-[72px] rounded-[16px]"
                 initial={{ scale: 0.8 }}
@@ -405,19 +405,19 @@ export default function Settings() {
               {(
                 [
                   {
-                    icon: "/seg-day.svg",
+                    icon: `${import.meta.env.BASE_URL}seg-day.svg`,
                     title: "大脑 · 认知",
                     body: "运动、新技能、间隔学习",
                     caption: "真正的认知训练在屏幕之外，这里的练习只是提醒你去做",
                   },
                   {
-                    icon: "/seg-morning.svg",
+                    icon: `${import.meta.env.BASE_URL}seg-morning.svg`,
                     title: "心智 · 情绪",
                     body: "正念、叹息、情绪命名",
                     caption: "被循证支持的自我调节工具",
                   },
                   {
-                    icon: "/seg-evening.svg",
+                    icon: `${import.meta.env.BASE_URL}seg-evening.svg`,
                     title: "灵魂 · 意义",
                     body: "感恩、复盘、意图",
                     caption: "只记 ✓/✗，永远没有分数",

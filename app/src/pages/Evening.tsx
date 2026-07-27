@@ -364,7 +364,7 @@ export default function Evening() {
               exit={{ scale: 0.95, opacity: 0, transition: { duration: 0.2 } }}
             >
               <img
-                src="/seg-evening.svg"
+                src={`${import.meta.env.BASE_URL}seg-evening.svg`}
                 alt=""
                 width={48}
                 height={48}

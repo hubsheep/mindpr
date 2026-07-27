@@ -87,7 +87,7 @@ function CountUp({
 function ChartEmpty({ text }: { text: string }) {
   return (
     <div className="flex h-[180px] flex-col items-center justify-center gap-3">
-      <img src="/empty-chart.svg" alt="" className="h-[96px] w-[192px]" />
+      <img src={`${import.meta.env.BASE_URL}empty-chart.svg`} alt="" className="h-[96px] w-[192px]" />
       <p className="text-center text-[13px] leading-[18px] tracking-[0.02em] text-ink-3">
         {text}
       </p>
