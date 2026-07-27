@@ -6,7 +6,7 @@ import { inspectAttr } from "plugin-inspect-react-code";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "./",
+  base: "/mindpr/",
   plugins: [
     inspectAttr(),
     react(),
